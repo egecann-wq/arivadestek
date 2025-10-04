@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ariva Derneği</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body, html { height: 100%; overflow: hidden; }
+
+    /* Container */
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 400%;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    section {
+      width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(180deg, #0b3d2e, #134e39, #0b3d2e);
+      color: white;
+      position: relative;
+    }
+
+    /* Header */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0,0,0,0.5);
+      z-index: 100;
+    }
+    header h1 { color: #4ade80; display: flex; align-items: center; gap: .5rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #4ade80; }
+
+    /* Hero görsel alanı */
+    .hero {
+      width: 100%;
+      height: 200px;
+      background: url('https://cdn.pixabay.com/photo/2017/03/27/14/56/lake-2176343_1280.jpg') no-repeat center center/cover;
+      border-bottom: 4px solid #134e39;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+      margin-bottom: 2rem;
+    }
+    .hero h2 { font-size: 2rem; margin-bottom: 0.3rem; }
+    .hero p { font-size: 1rem; }
+
+    /* Bağış kutusu */
+    .donation-box {
+      background: rgba(0,0,0,0.6);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      width: 320px;
+      text-align: center;
+    }
+    .donation-box h2 { margin-bottom: 1rem; color: #4ade80; }
+    .donation-box p { margin-bottom: 1rem; font-size: 0.95rem; }
+    .donation-box input, .donation-box button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .donation-box input { outline: none; }
+    .donation-box button {
+      background: #4ade80;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+    .donation-box button:hover { transform: scale(1.05); }
+
+    /* Bölüm içerikleri */
+    section h2 { color: #4ade80; margin-bottom: 1rem; }
+    section p { max-width: 600px; line-height: 1.5; }
+
+    /* Footer */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      text-align: center;
+      width: 100%;
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌲 Ariva</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="navigateTo(0)">Bağış</a></li>
+        <li><a href="#" onclick="navigateTo(1)">Hakkında</a></li>
+        <li><a href="#" onclick="navigateTo(2)">Etki</a></li>
+        <li><a href="#" onclick="navigateTo(3)">İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container" id="container">
+    <!-- Bağış ekranı -->
+    <section id="home">
+      <div class="hero">
+        <h2>Ariva Derneği</h2>
+        <p>Her bağış bir fidan, her fidan bir gelecek.</p>
+      </div>
+      <div class="donation-box">
+        <h2>Bağış Yap</h2>
+        <p>Doğayı korumak için desteğine ihtiyacımız var.</p>
+        <form action="thankyou.html" method="GET">
+          <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+          <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+          <input type="number" name="amount" placeholder="Bağış Tutarı (₺)" required>
+          <button type="submit">Hemen Bağış Yap</button>
+        </form>
+      </div>
+      <footer>© 2025 Ariva Derneği - Tüm Hakları Saklıdır.</footer>
+    </section>
+
+    <!-- Hakkında -->
+    <section id="about">
+      <h2>Ariva Hakkında</h2>
+      <p>Ariva, doğayı korumak ve gelecek nesillere daha yeşil bir dünya bırakmak için kurulan bir dernektir. Her bağışla birlikte fidanlar dikiyor, topluma faydalı projeler geliştiriyoruz.</p>
+      <footer>© 2025 Ariva Derneği - Tüm Hakları Saklıdır.</footer>
+    </section>
+
+    <!-- Etki -->
+    <section id="impact">
+      <h2>Yaptığımız Etkiler</h2>
+      <p>🌱 10.000 fidan dikildi <br> 🎓 200 öğrenciye burs sağlandı <br> 🌍 50 çevre temizliği etkinliği düzenlendi</p>
+      <footer>© 2025 Ariva Derneği - Tüm Hakları Saklıdır.</footer>
+    </section>
+
+    <!-- İletişim -->
+    <section id="contact">
+      <h2>İletişim</h2>
+      <p>📍 İstanbul, Türkiye <br> 📧 info@ariva.org <br> 📞 +90 555 123 45 67</p>
+      <footer>© 2025 Ariva Derneği - Tüm Hakları Saklıdır.</footer>
+    </section>
+  </div>
+
+  <script>
+    function navigateTo(pageIndex) {
+      const container = document.getElementById("container");
+      container.style.transform = `translateX(-${pageIndex * 100}vw)`;
+    }
+  </script>
+</body>
+</html>
